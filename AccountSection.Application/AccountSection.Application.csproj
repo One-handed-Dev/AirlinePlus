@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AccountSection.Application.Contracts\AccountSection.Application.Contracts.csproj" />
+    <ProjectReference Include="..\AccountSection.Domain\AccountSection.Domain.csproj" />
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\InteractionSection.Application.Contracts\InteractionSection.Application.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AccountSection.Application.Contracts\AccountSection.Application.Contracts.csproj" />
+    <ProjectReference Include="..\AccountSection.Domain\AccountSection.Domain.csproj" />
+    <ProjectReference Include="..\AccountSection.Infrastructure.EFCore\AccountSection.Infrastructure.EFCore.csproj" />
+    <ProjectReference Include="..\CommentSection.Infrastructure.EFCore\CommentSection.Infrastructure.EFCore.csproj" />
+    <ProjectReference Include="..\HotelSection.Infrastructure.EFCore\HotelSection.Infrastructure.EFCore.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNet.Mvc" Version="5.2.9" />
+  </ItemGroup>
+
+</Project>

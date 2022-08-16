@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="NETCore.MailKit" Version="2.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AccountSection.Domain\AccountSection.Domain.csproj" />
+    <ProjectReference Include="..\CommentSection.Domain\CommentSection.Domain.csproj" />
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\HotelSection.Domain\HotelSection.Domain.csproj" />
+    <ProjectReference Include="..\InteractionSection.Domain\InteractionSection.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

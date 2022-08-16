@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	<LangVersion>preview</LangVersion>
+    <TargetFramework>net5.0</TargetFramework>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\AccountSection.Application.Contracts\AccountSection.Application.Contracts.csproj" />
+		<ProjectReference Include="..\AccountSection.Domain\AccountSection.Domain.csproj" />
+		<ProjectReference Include="..\CommentSection.Application.Contracts\CommentSection.Application.Contracts.csproj" />
+		<ProjectReference Include="..\CommentSection.Domain\CommentSection.Domain.csproj" />
+		<ProjectReference Include="..\InteractionSection.Application.Contracts\InteractionSection.Application.Contracts.csproj" />
+	</ItemGroup>
+
+</Project>
