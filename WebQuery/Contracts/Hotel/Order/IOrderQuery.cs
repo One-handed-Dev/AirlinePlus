@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace WebQuery.Contracts.Hotel.Order
+namespace WebQuery.Contracts.Shop.Order
 {
     public interface IOrderQuery
     {

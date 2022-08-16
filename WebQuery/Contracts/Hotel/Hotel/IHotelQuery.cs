@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
-using HotelSection.Application.Contracts.OrderApp;
+using ShopSection.Application.Contracts.OrderApp;
 
-namespace WebQuery.Contracts.Hotel.Hotel
+namespace WebQuery.Contracts.Shop.Shop
 {
-    public interface IHotelQuery
+    public interface IShopQuery
     {
-        QueryHotel[] GetAll();
-        QueryHotel GetDetails(long id);
-        QueryHotel[] Search(string query);
+        QueryShop[] GetAll();
+        QueryShop GetDetails(long id);
+        QueryShop[] Search(string query);
         List<CartItem> FetchData(List<CartItem> cartItems);
-        QueryHotel[] GetSameCityHotels(string city, long id);
+        QueryShop[] GetSameCityShops(string city, long id);
     }
 }

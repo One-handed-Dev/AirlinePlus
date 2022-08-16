@@ -1,10 +1,10 @@
 ﻿using System.Linq;
 using Common.Application;
 using System.Collections.Generic;
-using HotelSection.Domain.OrderAgg;
+using ShopSection.Domain.OrderAgg;
 using Microsoft.EntityFrameworkCore;
-using WebQuery.Contracts.Hotel.Order;
-using HotelSection.Infrastructure.EFCore;
+using WebQuery.Contracts.Shop.Order;
+using ShopSection.Infrastructure.EFCore;
 using static Common.Application.Projection;
 
 namespace WebQuery.Query
@@ -12,9 +12,9 @@ namespace WebQuery.Query
     public sealed class OrderQuery : IOrderQuery
     {
         #region Init
-        private readonly HotelContext context;
+        private readonly ShopContext context;
 
-        public OrderQuery(HotelContext context) => this.context = context;
+        public OrderQuery(ShopContext context) => this.context = context;
         #endregion
 
         private List<QueryOrderItem> Map(List<OrderItem> items)
@@ -27,10 +27,10 @@ namespace WebQuery.Query
 
                 if (room is not null)
                 {
-                    var hotel = context.Hotels.SingleOrDefault(x => x.Id == room.HotelId);
+                    var hotel = context.Shops.SingleOrDefault(x => x.Id == room.ShopId);
 
                     each.RoomId = room.Id;
-                    each.HotelId = hotel.Id;
+                    each.ShopId = hotel.Id;
                     each.Price = room.Price;
                     each.Picture = hotel.Picture;
                     each.Name = $"{hotel.Name} - {room.Name}";

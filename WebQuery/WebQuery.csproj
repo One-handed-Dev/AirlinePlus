@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
@@ -9,7 +9,7 @@
     <ProjectReference Include="..\AccountSection.Domain\AccountSection.Domain.csproj" />
     <ProjectReference Include="..\AccountSection.Infrastructure.EFCore\AccountSection.Infrastructure.EFCore.csproj" />
     <ProjectReference Include="..\CommentSection.Infrastructure.EFCore\CommentSection.Infrastructure.EFCore.csproj" />
-    <ProjectReference Include="..\HotelSection.Infrastructure.EFCore\HotelSection.Infrastructure.EFCore.csproj" />
+    <ProjectReference Include="..\ShopSection.Infrastructure.EFCore\ShopSection.Infrastructure.EFCore.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,9 +1,9 @@
-﻿namespace WebQuery.Contracts.Hotel.HotelPicture
+﻿namespace WebQuery.Contracts.Shop.ShopPicture
 {
-    public class QueryHotelPicture
+    public class QueryShopPicture
     {
         public long Id { get; set; }
-        public long HotelId { get; set; }
+        public long ShopId { get; set; }
         public bool IsRemoved { get; set; }
         public string Picture { get; set; }
     }

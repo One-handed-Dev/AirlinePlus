@@ -7,7 +7,7 @@ namespace WebQuery.Contracts.Comment
     {
         void RemoveAll(long ownerId);
         void Remove(long ownerId, long commentId);
-        List<QueryComment> GetHotelComments(long hotelId);
+        List<QueryComment> GetShopComments(long hotelId);
         List<QueryComment> GetUserAllComments(long ownerId);
     }
 }

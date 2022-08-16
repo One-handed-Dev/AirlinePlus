@@ -1,10 +1,10 @@
-﻿namespace WebQuery.Contracts.Hotel.Order
+﻿namespace WebQuery.Contracts.Shop.Order
 {
     public class QueryOrderItem
     {
         public string Name { get; set; }
         public long RoomId { get; set; }
-        public long HotelId { get; set; }
+        public long ShopId { get; set; }
         public long OrderId { get; set; }
         public double Price { get; set; }
         public string Picture { get; set; }

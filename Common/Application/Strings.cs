@@ -62,9 +62,9 @@
                 public const string ForgetPasswordLog = "فراموشی رمز عبور (ForgetPasswordLog)";
                 public const string AccountPolicy = "سیاست‌های کاربران (AccountPolicy)";
 
-                public const string Hotel = "هتل (Hotel)";
+                public const string Shop = "هتل (Shop)";
                 public const string Room = "اتاق (Room)";
-                public const string HotelPicture = "عکس هتل (HotelPicture)";
+                public const string ShopPicture = "عکس هتل (ShopPicture)";
 
                 public const string Email = "ایمیل (Email)";
                 public const string Comment = "نظرات (Comment)";

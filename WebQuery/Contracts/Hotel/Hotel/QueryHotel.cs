@@ -1,11 +1,11 @@
 ﻿using Common.Presentation;
 using System.Collections.Generic;
-using HotelSection.Domain.RoomAgg;
-using WebQuery.Contracts.Hotel.HotelPicture;
+using ShopSection.Domain.RoomAgg;
+using WebQuery.Contracts.Shop.ShopPicture;
 
-namespace WebQuery.Contracts.Hotel.Hotel
+namespace WebQuery.Contracts.Shop.Shop
 {
-    public class QueryHotel
+    public class QueryShop
     {
         public long Id { get; set; }
         public string City { get; set; }
@@ -17,6 +17,6 @@ namespace WebQuery.Contracts.Hotel.Hotel
         public int CountOfRooms { get; set; }
         public string Facilities { get; set; }
         public List<QueryComment> Comments { get; set; }
-        public List<QueryHotelPicture> HotelPictures { get; set; }
+        public List<QueryShopPicture> ShopPictures { get; set; }
     }
 }

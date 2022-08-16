@@ -6,7 +6,7 @@ namespace Common.Presentation
     public sealed class QueryComment : BaseEfViewModel, IConfirmable
     {
         public long OwnerId { get; set; }
-        public long? HotelId { get; set; }
+        public long? ShopId { get; set; }
         public string Content { get; set; }
         public bool IsCanceled { get; set; }
         public string OwnerName { get; set; }

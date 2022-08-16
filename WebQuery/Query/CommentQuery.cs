@@ -5,7 +5,7 @@ using Common.Presentation;
 using System.Collections.Generic;
 using WebQuery.Contracts.Comment;
 using Microsoft.EntityFrameworkCore;
-using HotelSection.Infrastructure.EFCore;
+using ShopSection.Infrastructure.EFCore;
 using AccountSection.Infrastructure.EFCore;
 using CommentSection.Infrastructure.EFCore;
 
@@ -14,11 +14,11 @@ namespace WebQuery.Query
     public sealed class CommentQuery : ICommentQuery
     {
         #region Init
-        private readonly HotelContext hotelContext;
+        private readonly ShopContext hotelContext;
         private readonly AccountContext accountContext;
         private readonly CommentContext commentContext;
 
-        public CommentQuery(CommentContext commentContext, HotelContext hotelContext, AccountContext accountContext)
+        public CommentQuery(CommentContext commentContext, ShopContext hotelContext, AccountContext accountContext)
         {
             this.hotelContext = hotelContext;
             this.commentContext = commentContext;
@@ -46,7 +46,7 @@ namespace WebQuery.Query
             commentContext.SaveChanges();
         }
 
-        public List<QueryComment> GetHotelComments(long hotelId)
+        public List<QueryComment> GetShopComments(long hotelId)
         {
             Random random = new();
 
@@ -77,7 +77,7 @@ namespace WebQuery.Query
                 var ownerOrders = hotelContext.Orders.Where(x => x.AccountId == each.OwnerId).ToList();
 
                 foreach (var order in ownerOrders)
-                    if (order.Items.Any(x => x.RoomId == each.HotelId))
+                    if (order.Items.Any(x => x.RoomId == each.ShopId))
                     {
                         each.IsOwnerBuyer = true;
                         break;
@@ -94,7 +94,7 @@ namespace WebQuery.Query
 
             query.ForEach(each =>
             {
-                var targetProduct = hotelContext.Hotels.AsNoTracking().FirstOrDefault(x => x.Id == each.HotelId);
+                var targetProduct = hotelContext.Shops.AsNoTracking().FirstOrDefault(x => x.Id == each.ShopId);
                 if (targetProduct is not null) each.TargetName = targetProduct.Name;
             });
 

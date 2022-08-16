@@ -1,7 +1,7 @@
 ﻿using System;
 using MimeKit;
 using Common.Application;
-using HotelSection.Domain.OrderAgg;
+using ShopSection.Domain.OrderAgg;
 using AccountSection.Domain.AccountAgg;
 using CommentSection.Domain.CommentAgg;
 using InteractionSection.Domain.EmailAgg;

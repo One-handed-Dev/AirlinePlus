@@ -16,7 +16,7 @@
   <ItemGroup>
     <ProjectReference Include="..\CommentSection.Infrastructure.EFCore\CommentSection.Infrastructure.EFCore.csproj" />
     <ProjectReference Include="..\Common\Common.csproj" />
-    <ProjectReference Include="..\HotelSection.Infrastructure.EFCore\HotelSection.Infrastructure.EFCore.csproj" />
+    <ProjectReference Include="..\ShopSection.Infrastructure.EFCore\ShopSection.Infrastructure.EFCore.csproj" />
     <ProjectReference Include="..\InteractionSection.Application.Contracts\InteractionSection.Application.Contracts.csproj" />
     <ProjectReference Include="..\InteractionSection.Domain\InteractionSection.Domain.csproj" />
   </ItemGroup>
