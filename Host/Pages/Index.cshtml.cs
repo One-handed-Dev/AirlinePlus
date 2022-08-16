@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AirlinePlus.Pages
+namespace Host.Pages
 {
     public class IndexModel : PageModel
     {
