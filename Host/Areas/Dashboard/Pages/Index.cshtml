@@ -1,0 +1,184 @@
+﻿@page
+@model Areas.Dashboard.Pages.IndexModel
+@{
+    ViewData["Title"] = "صفحه مدیریت";
+}
+
+<!-- Start Widget -->
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-lg-4">
+        <div class="mini-stat clearfix bx-shadow">
+            <span class="mini-stat-icon bg-info"><i class="ion-android-contacts"></i></span>
+            <div class="mini-stat-info text-right text-muted">
+                <span class="counter">@Model.Statistic.LastMonthEnrollmentsCount</span>
+                تعداد کاربر عضوشده در ماه اخیر
+            </div>
+            <div class="tiles-progress">
+                <div class="m-t-20">
+                    <div class="progress progress-sm m-0">
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                            <span class="sr-only">60% Complete</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-12 col-sm-12 col-lg-4">
+        <div class="mini-stat clearfix bx-shadow">
+            <span class="mini-stat-icon bg-purple"><i class="ion-ios7-cart"></i></span>
+            <div class="mini-stat-info text-right text-muted">
+                <span class="counter">@Model.Statistic.LastMonthReservationsCount</span>
+                تعداد هتل رزروشده در ماه اخیر
+            </div>
+            <div class="tiles-progress">
+                <div class="m-t-20">
+                    <div class="progress progress-sm m-0">
+                        <div class="progress-bar progress-bar-purple" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                            <span class="sr-only">90% Complete</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-12 col-sm-12 col-lg-4">
+        <div class="mini-stat clearfix bx-shadow">
+            <span class="mini-stat-icon bg-success"><i class="ion-eye"></i></span>
+            <div class="mini-stat-info text-right text-muted">
+                <span class="counter">@Model.Statistic.UnreadCommentsCount</span>
+                تعداد نظرات خوانده نشده
+            </div>
+            <div class="tiles-progress">
+                <div class="m-t-20">
+                    <div class="progress progress-sm m-0">
+                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                            <span class="sr-only">60% Complete</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End row-->
+
+
+<div class="row">
+    <div class="col-lg-6">
+        <div class="portlet">
+            <!-- /portlet heading -->
+            <div class="portlet-heading">
+                <h3 class="portlet-title text-dark text-uppercase">
+                    آخرین هتل های رزرو شده
+                </h3>
+                <div class="portlet-widgets">
+                    <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                    <span class="divider"></span>
+                    <a data-toggle="collapse" data-parent="#accordion1" href="#portlet1"><i class="ion-minus-round"></i></a>
+                    <span class="divider"></span>
+                    <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <table id="datatable1" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>شناسه سفارش</th>
+                                            <th>نام کاربر</th>
+                                            <th>تاریخ ثبت</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Statistic.FiveRecentlyHotelReservations)
+                                        {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td>@item.IssueTrackingNo</td>
+                                            <td>@item.AccountFullName</td>
+                                            <td>@item.CreationDate</td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div> <!-- /Portlet -->
+    </div> <!-- end col -->
+
+    <div class="col-lg-6">
+        <div class="portlet">
+            <!-- /portlet heading -->
+            <div class="portlet-heading">
+                <h3 class="portlet-title text-dark text-uppercase">
+                    جدیدترین هتل های تعریف شده
+                </h3>
+                <div class="portlet-widgets">
+                    <a href="javascript:;" data-toggle="reload"><i class="ion-refresh"></i></a>
+                    <span class="divider"></span>
+                    <a data-toggle="collapse" data-parent="#accordion1" href="#portlet1"><i class="ion-minus-round"></i></a>
+                    <span class="divider"></span>
+                    <a href="#" data-toggle="remove"><i class="ion-close-round"></i></a>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                <table id="datatable2" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>#</th>
+                                            <th>عکس</th>
+                                            <th>نام هتل</th>
+                                            <th>تاریخ ثبت</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model.Statistic.FiveRecentlyHotelDefinition)
+                                        {
+                                        <tr>
+                                            <td>@item.Id</td>
+                                            <td><img class="" style="max-width:50px" src="~/UploadedFiles/@item.Picture"/></td>
+                                            <td>@item.Name</td>
+                                            <td>@item.CreationDate</td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div> <!-- /Portlet -->
+    </div> <!-- end col -->
+</div> <!-- End row -->
+
+@section Scripts {
+    <script src="~/AdminTheme/assets/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/AdminTheme/assets/datatables/dataTables.bootstrap.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#datatable1').dataTable();
+            $('#datatable2').dataTable();
+        });
+    </script>
+}

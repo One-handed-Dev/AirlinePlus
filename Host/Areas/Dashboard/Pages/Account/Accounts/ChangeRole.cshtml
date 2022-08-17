@@ -1,0 +1,36 @@
+﻿@model AccountSection.Application.Contracts.AccountApp.ChangeRoleDto
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title">انتخاب نقش جدید</h4>
+</div>
+
+<form asp-page="./Index" asp-page-handler="ChangeRole"
+      method="post"
+      data-ajax="true"
+      data-callback=""
+      data-action="Refresh">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="NewRoleId" class="control-label">نقش جدید</label>
+                    <select class="form-control" asp-for="NewRoleId"
+                            asp-items='new SelectList(Model.Roles, "Id", "Name")'>
+                        <option value="0">انتخاب نقش</option>
+                    </select>
+                    <span asp-validation-for="NewRoleId" class="error"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" asp-for="Roles" value="@Model.Roles"/>
+    <input type="hidden" asp-for="AccountId" value="@Model.AccountId"/>
+    <input type="hidden" asp-for="ModifierAccountId" value="@Model.ModifierAccountId"/>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">بستن</button>
+        <button permission="@AccountPermissions.Account.ChangeRole" type="submit" class="btn btn-info">ثبت</button>
+    </div>
+</form>

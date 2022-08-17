@@ -1,0 +1,60 @@
+﻿
+@inject Common.Application.Contracts.IAuthenticationService AuthHelper
+@{ 
+    var CurrentAccountInfo = AuthHelper.GetCurrentAccountInfo();
+}
+
+<div class="left side-menu">
+    <div class="sidebar-inner slimscrollleft">
+        <div class="user-details">
+            <div class="d-flex justify-content-center">
+                <span>سلام </span><span class="ras-fg-orange">@CurrentAccountInfo.Fullname</span>
+                <a class="btn pull-left btn-danger btn-sm" asp-page="/LogIn" asp-page-handler="LogOut">خروج</a>
+            </div>
+        </div>
+        <!--- Divider -->
+        <div id="sidebar-menu">
+            <ul>
+                <li>
+                    <a asp-page="/Index" class="waves-effect active"><i class="md md-home"></i><span> داشبورد </span></a>
+                </li>
+
+                <li class="has_sub">
+                    <a class="waves-effect"><i class="md md-add-shopping-cart"></i><span> مدیریت هتل ها </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                    <ul class="list-unstyled">
+                        <li><a asp-page="/Hotel/Hotels/Index">هتل ها</a></li>
+                        <li><a asp-page="/Hotel/Rooms/Index">اتاق ها</a></li>
+                        <li><a asp-page="/Hotel/HotelPictures/Index"> عکس هتل ها</a></li>
+                        <li><a asp-page="/Hotel/Orders/Index">رزروها</a></li>
+                    </ul>
+                </li>
+
+                <li class="has_sub">
+                    <a class="waves-effect"><i class="md md-comment"></i><span> مدیریت نظرات </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                    <ul class="list-unstyled">
+                        <li><a asp-page="/Comment/Index">نظرات</a></li>
+                    </ul>
+                </li>
+
+                <li class="has_sub">
+                    <a class="waves-effect"><i class="md md-comment"></i><span> مدیریت ایمیل ها </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                    <ul class="list-unstyled">
+                        <li><a asp-page="/Interaction/Index">ایمیل ها</a></li>
+                    </ul>
+                </li>
+
+                <li class="has_sub">
+                    <a class="waves-effect"><i class="md md-person"></i><span> مدیریت کاربران </span><span class="pull-right"><i class="md md-add"></i></span></a>
+                    <ul class="list-unstyled">
+                        <li><a asp-page="/Account/AccountPolicies/Index">سیاست‌ها</a></li>
+                        <li><a asp-page="/Account/Roles/Index">نقش ها</a></li>
+                        <li><a asp-page="/Account/Accounts/Index">کاربران</a></li>
+                        <li><a asp-page="/Account/ForgetPasswordLogs/Index">درخواست‌های بازیابی رمزعبور</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+﻿@page
+@model Account.AccountPolicies.IndexModel
+@{
+    Layout = "Shared/_DashboardLayout";
+    ViewData["title"] = "مدیریت سیاست‌های کاربران";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <h4 class="page-title pull-right">@ViewData["title"]</h4>
+    </div>
+</div>
+
+<div class="row" id="ProductClassesLevel03Div">
+    <div class="col-md-12">
+        <div class="panel panel-default mx-3">
+            <div class="panel-body">
+                <form method="post">
+
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Command.VerifyCodeTimerDurationMinutes" class="control-label">به کاربر برای واردکردن کد فعالسازی چند دقیقه زمان داده‌شود؟</label>
+                                <input type="number" class="form-control" asp-for="Command.VerifyCodeTimerDurationMinutes" min="1">
+                                <span asp-validation-for="Command.VerifyCodeTimerDurationMinutes" class="error"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Command.ForgetPasswordLogHashExpirationMinutes" class="control-label">مدت زمان اعتبار لینک بازیابی رمزعبور چند دقیقه باشد؟</label>
+                                <input type="number" class="form-control" asp-for="Command.ForgetPasswordLogHashExpirationMinutes" min="1">
+                                <span asp-validation-for="Command.ForgetPasswordLogHashExpirationMinutes" class="error"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label asp-for="Command.ResetPasswordCallbackUrl" class="control-label">سرآدرس لینک بازیابی رمزعبور</label>
+                                <input type="text" class="form-control" asp-for="Command.ResetPasswordCallbackUrl">
+                                <span asp-validation-for="Command.ResetPasswordCallbackUrl" class="error"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a asp-page="./Index" class="btn btn-danger m-b-5">لغو</a>
+                    <button permission="@AccountPermissions.AccountPolicy.Edit" type="submit" class="btn btn-success m-b-5">ثبت</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

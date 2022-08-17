@@ -1,0 +1,87 @@
+﻿@page
+@model Host.Areas.Dashboard.Pages.Hotel.Rooms.EditModel
+@{
+    Layout = "Shared/_DashboardLayout";
+    ViewData["title"] = "ویرایش اتاق هتل";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">@ViewData["title"]</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <form method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="control-label" asp-for="Command.HotelId">هتل</label>
+                                        <select class="form-control" asp-for="Command.HotelId" asp-items='new SelectList(Model.Hotels, "Id", "Name")'>
+                                            <option value="0">انتخاب هتل...</option>
+                                        </select>
+                                        <span asp-validation-for="Command.HotelId" class="error"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label asp-for="Command.Name" class="control-label">عنوان</label>
+                                        <input type="text" class="form-control" asp-for="Command.Name">
+                                        <span asp-validation-for="Command.Name" class="error"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label asp-for="Command.Metrage" class="control-label">متراژ (به متر)</label>
+                                        <input type="number" class="form-control" asp-for="Command.Metrage">
+                                        <span asp-validation-for="Command.Metrage" class="error"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label asp-for="Command.Capacity" class="control-label">ظرفیت (تعداد افراد)</label>
+                                        <input type="number" class="form-control" asp-for="Command.Capacity">
+                                        <span asp-validation-for="Command.Capacity" class="error"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label asp-for="Command.Price" class="control-label">هزینه کرایه (تومان)</label>
+                                        <input type="number" class="form-control" asp-for="Command.Price">
+                                        <span asp-validation-for="Command.Price" class="error"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label asp-for="Command.CountOfThisRoomTypeInHotel" class="control-label">چه تعداد از این نوع اتاق در هتل وجود دارد؟</label>
+                                        <input type="number" class="form-control" asp-for="Command.CountOfThisRoomTypeInHotel">
+                                        <span asp-validation-for="Command.CountOfThisRoomTypeInHotel" class="error"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label asp-for="Command.OtherInfos" class="control-label">سایر موارد</label>
+                                        <input type="text" class="form-control" asp-for="Command.OtherInfos">
+                                        <span asp-validation-for="Command.OtherInfos" class="error"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="hidden" asp-for="Command.Id" value="@Model.Command.Id" />
+                            <a asp-page="Index" class="btn btn-dark m-b-5">بازگشت</a>
+                            <button permission="@HotelPermissions.Room.Edit" type="submit" class="btn btn-info">ویرایش</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

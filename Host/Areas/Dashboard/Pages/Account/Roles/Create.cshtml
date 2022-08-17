@@ -1,0 +1,117 @@
+﻿@page
+@model Host.Areas.Dashboard.Pages.Account.Roles.CreateModel
+@{
+    Layout = "Shared/_DashboardLayout";
+    ViewData["title"] = "ایجاد نقش جدید";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">ایجاد نقش جدید</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <form method="post">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <label asp-for="Command.Name" class="control-label">نام</label>
+                                        <input type="text" class="form-control" asp-for="Command.Name" onchange="fillField('Command_Name', 'Command_PictureAlt'); fillField('Command_Name', 'Command_PictureTitle'); fillField('Command_Name', 'Command_Keywords')">
+                                        <span asp-validation-for="Command.Name" class="error"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <div class="checkbox checkbox-primary">
+                                            <input asp-for="Command.IsAllowedToEnterDashboard" />
+                                            <label asp-for="Command.IsAllowedToEnterDashboard">
+                                                دسترسی به پنل ادمین داشته باشد؟
+                                            </label>
+                                            <span asp-validation-for="Command.IsAllowedToEnterDashboard" class="error"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="control-label col-md-3">انتخاب دسترسی ها</label>
+                                    <div class="col-md-12">
+                                        <select asp-for="Command.Permissions" asp-items="Model.PermissionsList" class="multi-select" multiple="multiple" id="my_multi_select3">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button permission="@AccountPermissions.Role.Create" type="submit" class="btn btn-info">ایجاد</button>
+                            <a asp-page="Index" class="btn btn-dark m-b-5">بازگشت</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Css
+{
+    <link href="~/AdminTheme/assets/jquery-multi-select/multi-select.css" rel="stylesheet" type="text/css" />
+}
+
+@section Scripts
+{
+    <script type="text/javascript" src="~/AdminTheme/assets/jquery-multi-select/jquery.multi-select.js"></script>
+    <script type="text/javascript" src="~/AdminTheme/assets/jquery-multi-select/jquery.quicksearch.js"></script>
+
+    <script>
+        jQuery(document).ready(function () {
+            $('#my_multi_select3').multiSelect({
+                selectableOptgroup: true,
+                selectableHeader:
+                    `
+                    <label class='control-label'>انتخاب نشده ها</label>
+                    <input type='text' class='form-control search-input' autocomplete='off' placeholder='جستجو...'>
+                    `,
+                selectionHeader:
+                    `
+                    <label class='control-label'>انتخاب شده ها</label>
+                    <input type='text' class='form-control search-input' autocomplete='off' placeholder='جستجو...'>
+                    `,
+                afterInit: function (ms) {
+                    var that = this,
+                        $selectableSearch = that.$selectableUl.prev(),
+                        $selectionSearch = that.$selectionUl.prev(),
+                        selectableSearchString =
+                            '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
+                        selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
+
+                    that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+                        .on('keydown',
+                            function (e) {
+                                if (e.which === 40) {
+                                    that.$selectableUl.focus();
+                                    return false;
+                                }
+                            });
+
+                    that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+                        .on('keydown',
+                            function (e) {
+                                if (e.which == 40) {
+                                    that.$selectionUl.focus();
+                                    return false;
+                                }
+                            });
+                },
+                afterSelect: function () {
+                    this.qs1.cache();
+                    this.qs2.cache();
+                },
+                afterDeselect: function () {
+                    this.qs1.cache();
+                    this.qs2.cache();
+                }
+            });
+        });
+    </script>
+}

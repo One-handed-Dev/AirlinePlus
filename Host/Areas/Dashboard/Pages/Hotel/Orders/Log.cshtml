@@ -1,0 +1,48 @@
+﻿@model HotelSection.Application.Contracts.OrderApp.ViewOrderDetails
+@using static Common.Application.Calendar
+
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 class="modal-title">جزئیات سفارش (@Model.OrderId)</h4>
+</div>
+  
+    <div class="modal-body">
+
+        <div class="card ras-round-15 alert alert-success shadow-lg w-25">
+            <div class="card-body">
+                <h6 class="text-center">اطلاعات سفارش</h6>
+                <div class="container-fluid border-bottom mt-3 mb-2"></div>
+                <p>نام: <span class="float-left">@Model.AccountName</span></p>
+                <p>شماره: <span class="float-left">@Model.AccountPhoneNumber</span></p>
+                <p>مبلغ کل سفارش: <span class="float-left">@Model.TotalPayAmount.ToMoney() تومان</span></p>
+                <div class="container-fluid border-bottom mb-2"></div>
+            </div>
+        </div>
+
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>محصول</th>
+                    <th>تعداد اتاق</th>
+                    <th>تعداد شب</th>
+                    <th>کرایه هر شب</th>
+                    <th>مبلغ کرایه</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.Items)
+                {
+                <tr>
+                    <td>@item.RoomName</td>
+                    <td>@item.CountOfRooms</td>
+                    <td>@item.CountOfNights</td>
+                    <td>@item.Price.ToMoney() تومان</td>
+                    <td>@item.TotalPayAmount.ToMoney() تومان</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">بستن</button>
+    </div>

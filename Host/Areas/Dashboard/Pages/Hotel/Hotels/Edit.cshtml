@@ -1,0 +1,78 @@
+﻿@page
+@model Host.Areas.Dashboard.Pages.Hotel.Hotels.EditModel
+@{
+    Layout = "Shared/_DashboardLayout";
+    ViewData["title"] = "ویرایش هتل";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">@ViewData["title"]</h3>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <form method="post"
+                              enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label asp-for="Command.Name" class="control-label">نام</label>
+                                        <input type="text" class="form-control" asp-for="Command.Name">
+                                        <span asp-validation-for="Command.Name" class="error"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-8">
+                                    <div class="form-group">
+                                        <label asp-for="Command.Address" class="control-label">نشانی</label>
+                                        <input type="text" class="form-control" asp-for="Command.Address">
+                                        <span asp-validation-for="Command.Address" class="error"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group no-margin">
+                                        <label asp-for="Command.Facilities" class="control-label">امکانات</label>
+                                        <textarea class="form-control ckeditor" asp-for="Command.Facilities"
+                                                  style="overflow: hidden; word-wrap: break-word; resize: horizontal; height: 104px;"></textarea>
+                                        <span asp-validation-for="Command.Facilities" class="error"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label asp-for="Command.Picture" class="control-label">عکس</label>
+                                        <input type="file" class="form-control" asp-for="Command.Picture" accept="image/*">
+                                        <span asp-validation-for="Command.Picture" class="error"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label asp-for="Command.City" class="control-label">شهری که هتل در آن واقع شده است</label>
+                                        <input type="text" class="form-control" asp-for="Command.City">
+                                        <span asp-validation-for="Command.City" class="error"></span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label asp-for="Command.StarsCount" class="control-label">تعداد ستاره های هتل</label>
+                                        <input type="text" class="form-control" asp-for="Command.StarsCount">
+                                        <span asp-validation-for="Command.StarsCount" class="error"></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <input type="hidden" asp-for="Command.Id" value="@Model.Command.Id" />
+                            <a asp-page="Index" class="btn btn-dark m-b-5">بازگشت</a>
+                            <button permission="@HotelPermissions.Hotel.Edit" type="submit" class="btn btn-info">ویرایش</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
