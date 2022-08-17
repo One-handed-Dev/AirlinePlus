@@ -6,33 +6,36 @@ using HotelSection.Application.Contracts.RoomApp;
 using HotelSection.Application.Contracts.HotelApp;
 using HotelSection.Infrastructure.Config.Permissions;
 
-namespace Host.Areas.Dashboard.Pages.Hotel.Rooms
+namespace Host.Areas.Dashboard.Pages.Shop.Rooms
 {
-    public sealed class CreateModel : PageModel
+    public sealed class EditModel : PageModel
     {
         #region Init
         private readonly IRoomApplication roomApplication;
-        private readonly IHotelApplication hotelApplication;
+        private readonly IAirlineApplication hotelApplication;
 
         public SaveRoom Command { get; set; }
         public List<ViewHotel> Hotels { get; set; }
 
-        public CreateModel(IHotelApplication hotelApplication, IRoomApplication roomApplication)
+        public EditModel(IAirlineApplication hotelApplication, IRoomApplication roomApplication)
         {
             this.roomApplication = roomApplication;
             this.hotelApplication = hotelApplication;
         }
         #endregion
 
-        #region Create
-        [NeedsPermission(((int)HotelPermissions.Room.Create))]
-        public void OnGet() => Hotels = hotelApplication.GetSelectList();
+        #region Edit
+        [NeedsPermission(((int)ShopPermissions.Room.Edit))]
+        public void OnGet(long id)
+        {
+            Command = roomApplication.GetDetails(id);
+            Hotels = hotelApplication.GetSelectList();
+        }
 
-        [NeedsPermission(((int)HotelPermissions.Room.Create))]
+        [NeedsPermission(((int)ShopPermissions.Room.Edit))]
         public IActionResult OnPost(SaveRoom command)
         {
-            command.CountOfAvailableRoom = command.CountOfThisRoomTypeInHotel;
-            roomApplication.Create(command);
+            roomApplication.Edit(command);
             return RedirectToPage("Index");
         }
         #endregion

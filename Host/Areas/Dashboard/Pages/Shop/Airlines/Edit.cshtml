@@ -1,8 +1,8 @@
 ﻿@page
-@model Host.Areas.Dashboard.Pages.Hotel.HotelPictures.EditModel
+@model Host.Areas.Dashboard.Pages.Shop.Airlines.EditModel
 @{
     Layout = "Shared/_DashboardLayout";
-    ViewData["title"] = "ویرایش عکس هتل";
+    ViewData["title"] = "ویرایش خط هوایی";
 }
 
 <div class="row">
@@ -18,18 +18,16 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="control-label" asp-for="Command.HotelId">هتل</label>
-                                        <select class="form-control" asp-for="Command.HotelId" asp-items='new SelectList(Model.Hotels, "Id", "Name")'>
-                                            <option value="0">انتخاب هتل...</option>
-                                        </select>
-                                        <span asp-validation-for="Command.HotelId" class="error"></span>
+                                        <label asp-for="Command.Name" class="control-label">عنوان</label>
+                                        <input type="text" class="form-control" asp-for="Command.Name">
+                                        <span asp-validation-for="Command.Name" class="error"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label asp-for="Command.Name" class="control-label">عنوان</label>
-                                        <input type="text" class="form-control" asp-for="Command.Name">
-                                        <span asp-validation-for="Command.Name" class="error"></span>
+                                        <label asp-for="Command.Info" class="control-label">اطلاعات</label>
+                                        <input type="text" class="form-control" asp-for="Command.Info">
+                                        <span asp-validation-for="Command.Info" class="error"></span>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -43,7 +41,7 @@
 
                             <input type="hidden" asp-for="Command.Id" value="@Model.Command.Id" />
                             <a asp-page="Index" class="btn btn-dark m-b-5">بازگشت</a>
-                            <button permission="@HotelPermissions.HotelPicture.Edit" type="submit" class="btn btn-info">ویرایش</button>
+                            <button permission="@ShopPermissions.Airline.Edit" type="submit" class="btn btn-info">ویرایش</button>
                         </form>
                     </div>
                 </div>

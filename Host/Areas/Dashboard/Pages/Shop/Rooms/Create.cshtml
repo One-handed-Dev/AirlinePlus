@@ -1,5 +1,5 @@
 ﻿@page
-@model Host.Areas.Dashboard.Pages.Hotel.Rooms.CreateModel
+@model Host.Areas.Dashboard.Pages.Shop.Rooms.CreateModel
 @{
     Layout = "Shared/_DashboardLayout";
     ViewData["title"] = "ایجاد اتاق هتل";
@@ -76,7 +76,7 @@
                             </div>
 
                             <a asp-page="Index" class="btn btn-dark m-b-5">بازگشت</a>
-                            <button permission="@HotelPermissions.Room.Create" type="submit" class="btn btn-info">ایجاد</button>
+                            <button permission="@ShopPermissions.Room.Create" type="submit" class="btn btn-info">ایجاد</button>
                         </form>
                     </div>
                 </div>

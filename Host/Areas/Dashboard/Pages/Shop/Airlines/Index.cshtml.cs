@@ -2,33 +2,36 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Common.Application.Contracts;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using HotelSection.Application.Contracts.HotelApp;
-using HotelSection.Infrastructure.Config.Permissions;
+using ShopSection.Application.Contracts.AirlineApp;
+using ShopSection.Infrastructure.Config.Permissions;
 
-namespace Host.Areas.Dashboard.Pages.Hotel.Hotels
+namespace Host.Areas.Dashboard.Pages.Shop.Airlines
 {
     public sealed class IndexModel : PageModel
     {
         #region Init
-        private readonly IHotelApplication hotelApplication;
+        private readonly IAirlineApplication airlineApplication;
 
-        public SearchHotel Command { get; set; }
-        public List<ViewHotel> List { get; set; }
+        public SearchAirline Command { get; set; }
+        public List<ViewAirline> List { get; set; }
         [TempData] public string Message { get; set; }
 
-        public IndexModel(IHotelApplication hotelApplication) => this.hotelApplication = hotelApplication;
+        public IndexModel(IAirlineApplication airlineApplication) => this.airlineApplication = airlineApplication;
         #endregion
 
         #region Search
-        [NeedsPermission(((int)HotelPermissions.Hotel.List))]
-        public void OnGet(SearchHotel command) => List = hotelApplication.Search(command);
+        [NeedsPermission(((int)ShopPermissions.Airline.List))]
+        public void OnGet(SearchAirline command)
+        {
+            List = airlineApplication.Search(command);
+        }
         #endregion
 
         #region Remove&Restore
-        [NeedsPermission(((int)HotelPermissions.Hotel.Remove))]
+        [NeedsPermission(((int)ShopPermissions.Airline.Remove))]
         public IActionResult OnGetRemove(long id)
         {
-            var result = hotelApplication.Remove(id);
+            var result = airlineApplication.Remove(id);
 
             if (result.IsSuccedded)
                 return RedirectToPage("./Index");
@@ -38,10 +41,10 @@ namespace Host.Areas.Dashboard.Pages.Hotel.Hotels
 
         }
 
-        [NeedsPermission(((int)HotelPermissions.Hotel.Restore))]
+        [NeedsPermission(((int)ShopPermissions.Airline.Restore))]
         public IActionResult OnGetRestore(long id)
         {
-            var result = hotelApplication.Restore(id);
+            var result = airlineApplication.Restore(id);
 
             if (result.IsSuccedded)
                 return RedirectToPage("./Index");

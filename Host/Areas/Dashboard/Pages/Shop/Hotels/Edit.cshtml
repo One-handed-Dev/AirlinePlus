@@ -1,5 +1,5 @@
 ﻿@page
-@model Host.Areas.Dashboard.Pages.Hotel.Hotels.EditModel
+@model Host.Areas.Dashboard.Pages.Shop.Hotels.EditModel
 @{
     Layout = "Shared/_DashboardLayout";
     ViewData["title"] = "ویرایش هتل";
@@ -68,7 +68,7 @@
 
                             <input type="hidden" asp-for="Command.Id" value="@Model.Command.Id" />
                             <a asp-page="Index" class="btn btn-dark m-b-5">بازگشت</a>
-                            <button permission="@HotelPermissions.Hotel.Edit" type="submit" class="btn btn-info">ویرایش</button>
+                            <button permission="@ShopPermissions.Hotel.Edit" type="submit" class="btn btn-info">ویرایش</button>
                         </form>
                     </div>
                 </div>

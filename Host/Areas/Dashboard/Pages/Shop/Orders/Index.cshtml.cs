@@ -6,7 +6,7 @@ using HotelSection.Application.Contracts.OrderApp;
 using HotelSection.Infrastructure.Config.Permissions;
 using AccountSection.Application.Contracts.AccountApp;
 
-namespace Host.Areas.Dashboard.Pages.Hotel.Orders
+namespace Host.Areas.Dashboard.Pages.Shop.Orders
 {
     public sealed class IndexModel : PageModel
     {
@@ -27,7 +27,7 @@ namespace Host.Areas.Dashboard.Pages.Hotel.Orders
         #endregion
 
         #region Log
-        [NeedsPermission(((int)HotelPermissions.Order.Log))]
+        [NeedsPermission(((int)ShopPermissions.Order.Log))]
         public IActionResult OnGetLog(long id)
         {
             var model = orderApplication.GetOrderDetailsBy(id);
@@ -36,7 +36,7 @@ namespace Host.Areas.Dashboard.Pages.Hotel.Orders
         #endregion
 
         #region Search
-        [NeedsPermission(((int)HotelPermissions.Order.List))]
+        [NeedsPermission(((int)ShopPermissions.Order.List))]
         public void OnGet(SearchOrder command)
         {
             AccountsList = accountApplication.GetSelectList();
@@ -45,7 +45,7 @@ namespace Host.Areas.Dashboard.Pages.Hotel.Orders
         #endregion
 
         #region Cancel
-        [NeedsPermission(((int)HotelPermissions.Order.Cancel))]
+        [NeedsPermission(((int)ShopPermissions.Order.Cancel))]
         public IActionResult OnGetCancel(long id)
         {
             orderApplication.Cancel(id);
@@ -54,7 +54,7 @@ namespace Host.Areas.Dashboard.Pages.Hotel.Orders
         #endregion
 
         #region Confirm
-        [NeedsPermission(((int)HotelPermissions.Order.Confirm))]
+        [NeedsPermission(((int)ShopPermissions.Order.Confirm))]
         public IActionResult OnGetConfirm(long id)
         {
             orderApplication.PaymentSucceeded(id, "0");

@@ -6,20 +6,20 @@ using HotelSection.Application.Contracts.RoomApp;
 using HotelSection.Application.Contracts.HotelApp;
 using HotelSection.Infrastructure.Config.Permissions;
 
-namespace Host.Areas.Dashboard.Pages.Hotel.Rooms
+namespace Host.Areas.Dashboard.Pages.Shop.Rooms
 {
     public sealed class IndexModel : PageModel
     {
         #region Init
         private readonly IRoomApplication roomApplication;
-        private readonly IHotelApplication hotelApplication;
+        private readonly IAirlineApplication hotelApplication;
 
         public SearchRoom Command { get; set; }
         public List<ViewRoom> List { get; set; }
         public List<ViewHotel> Hotels { get; set; }
         [TempData] public string Message { get; set; }
 
-        public IndexModel(IRoomApplication roomApplication, IHotelApplication hotelApplication)
+        public IndexModel(IRoomApplication roomApplication, IAirlineApplication hotelApplication)
         {
             this.roomApplication = roomApplication;
             this.hotelApplication = hotelApplication;
@@ -27,7 +27,7 @@ namespace Host.Areas.Dashboard.Pages.Hotel.Rooms
         #endregion
 
         #region Search
-        [NeedsPermission(((int)HotelPermissions.Room.List))]
+        [NeedsPermission(((int)ShopPermissions.Room.List))]
         public void OnGet(SearchRoom command)
         {
             Hotels = hotelApplication.GetSelectList();
@@ -36,7 +36,7 @@ namespace Host.Areas.Dashboard.Pages.Hotel.Rooms
         #endregion
 
         #region Remove&Restore
-        [NeedsPermission(((int)HotelPermissions.Room.Remove))]
+        [NeedsPermission(((int)ShopPermissions.Room.Remove))]
         public IActionResult OnGetRemove(long id)
         {
             var result = roomApplication.Remove(id);
@@ -49,7 +49,7 @@ namespace Host.Areas.Dashboard.Pages.Hotel.Rooms
 
         }
 
-        [NeedsPermission(((int)HotelPermissions.Room.Restore))]
+        [NeedsPermission(((int)ShopPermissions.Room.Restore))]
         public IActionResult OnGetRestore(long id)
         {
             var result = roomApplication.Restore(id);
