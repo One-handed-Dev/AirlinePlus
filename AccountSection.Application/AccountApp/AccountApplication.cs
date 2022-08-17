@@ -1,10 +1,10 @@
-﻿using Common.Application;
-using System.Threading.Tasks;
-using Common.Application.Contracts;
-using AccountSection.Domain.RoleAgg;
+﻿using AccountSection.Application.Contracts.AccountApp;
 using AccountSection.Domain.AccountAgg;
-using AccountSection.Application.Contracts.AccountApp;
+using AccountSection.Domain.RoleAgg;
+using Common.Application;
+using Common.Application.Contracts;
 using InteractionSection.Application.Contracts.EmailApp;
+using System.Threading.Tasks;
 
 namespace AccountSection.Application.AccountApp
 {

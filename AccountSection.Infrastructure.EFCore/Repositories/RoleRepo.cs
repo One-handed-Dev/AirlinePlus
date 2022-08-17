@@ -1,11 +1,11 @@
-﻿using System;
-using System.Linq;
+﻿using AccountSection.Application.Contracts.RoleApp;
+using AccountSection.Domain.RoleAgg;
 using Common.Application;
 using Common.Infrastructure;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using AccountSection.Domain.RoleAgg;
-using AccountSection.Application.Contracts.RoleApp;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AccountSection.Infrastructure.EFCore.Repositories
 {
@@ -20,12 +20,12 @@ namespace AccountSection.Infrastructure.EFCore.Repositories
         public new SaveRole GetDetails(long id)
         {
             var role = context.Roles.Select(x => new SaveRole
-                {
-                    Id = x.Id,
-                    Name = x.Name,
-                    MappedPermissions = MapPermissions(x.Permissions),
-                    IsAllowedToEnterDashboard = x.IsAllowedToEnterDashboard
-                })
+            {
+                Id = x.Id,
+                Name = x.Name,
+                MappedPermissions = MapPermissions(x.Permissions),
+                IsAllowedToEnterDashboard = x.IsAllowedToEnterDashboard
+            })
                 .AsNoTracking()
                 .FirstOrDefault(x => x.Id == id);
 

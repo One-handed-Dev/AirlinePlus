@@ -1,10 +1,10 @@
-﻿using System.Linq;
-using Common.Application;
-using System.Collections.Generic;
-using ShopSection.Domain.OrderAgg;
+﻿using Common.Application;
 using Microsoft.EntityFrameworkCore;
-using WebQuery.Contracts.Shop.Order;
+using ShopSection.Domain.OrderAgg;
 using ShopSection.Infrastructure.EFCore;
+using System.Collections.Generic;
+using System.Linq;
+using WebQuery.Contracts.Shop.Order;
 using static Common.Application.Projection;
 
 namespace WebQuery.Query
@@ -23,18 +23,18 @@ namespace WebQuery.Query
 
             mapped.ForEach(each =>
             {
-                var room = context.Rooms.AsNoTracking().SingleOrDefault(x => x.Id == each.RoomId);
+                var flight = context.Flights.AsNoTracking().SingleOrDefault(x => x.Id == each.FlightId);
 
-                if (room is not null)
+                if (flight is not null)
                 {
-                    var hotel = context.Shops.SingleOrDefault(x => x.Id == room.ShopId);
+                    var airline = context.Flights.SingleOrDefault(x => x.Id == flight.AirlineId);
 
-                    each.RoomId = room.Id;
-                    each.ShopId = hotel.Id;
-                    each.Price = room.Price;
-                    each.Picture = hotel.Picture;
-                    each.Name = $"{hotel.Name} - {room.Name}";
-                    each.TotalItemPrice = each.Price * each.CountOfNights * each.CountOfRooms;
+                    each.FlightId = flight.Id;
+                    each.ShopId = airline.Id;
+                    each.Price = flight.Price;
+                    //each.Picture = airline.Picture;
+                    //each.Name = $"{airline.Name} - {flight.Name}";
+                    each.TotalItemPrice = each.Price * each.CountOfNights * each.CountOfFlights;
                 }
             });
 

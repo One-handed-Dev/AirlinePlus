@@ -1,6 +1,6 @@
-﻿using Common.Infrastructure;
+﻿using AccountSection.Application.Contracts.AccountPolicyApp;
 using AccountSection.Domain.AccountPolicyAgg;
-using AccountSection.Application.Contracts.AccountPolicyApp;
+using Common.Infrastructure;
 
 namespace AccountSection.Infrastructure.Json.Repositories
 {

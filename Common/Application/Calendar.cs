@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Globalization;
-using Common.Application.Contracts;
 
 namespace Common.Application
 {

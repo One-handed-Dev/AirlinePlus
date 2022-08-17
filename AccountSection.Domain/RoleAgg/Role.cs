@@ -1,6 +1,6 @@
-﻿using Common.Domain;
+﻿using AccountSection.Domain.AccountAgg;
+using Common.Domain;
 using System.Collections.Generic;
-using AccountSection.Domain.AccountAgg;
 
 namespace AccountSection.Domain.RoleAgg
 {

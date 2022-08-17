@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using AccountSection.Application.Contracts.RoleApp;
 using Common.Application.Contracts;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using static Common.Application.Strings.Persian;
-using AccountSection.Application.Contracts.RoleApp;
 
 namespace AccountSection.Application.Contracts.AccountApp
 {

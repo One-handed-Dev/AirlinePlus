@@ -1,7 +1,7 @@
-﻿using Common.Application;
-using AccountSection.Domain.ForgetPasswordLogAgg;
-using AccountSection.Application.Contracts.AccountApp;
+﻿using AccountSection.Application.Contracts.AccountApp;
 using AccountSection.Application.Contracts.ForgetPasswordLogApp;
+using AccountSection.Domain.ForgetPasswordLogAgg;
+using Common.Application;
 
 namespace AccountSection.Application.ForgetPasswordLogApp
 {

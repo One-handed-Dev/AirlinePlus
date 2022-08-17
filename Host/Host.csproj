@@ -9,4 +9,12 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="5.0.17" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\AccountSection.Infrastructure.Config\AccountSection.Infrastructure.Config.csproj" />
+    <ProjectReference Include="..\CommentSection.Infrastructure.Config\CommentSection.Infrastructure.Config.csproj" />
+    <ProjectReference Include="..\Common\Common.csproj" />
+    <ProjectReference Include="..\InteractionSection.Infrastructure.Config\InteractionSection.Infrastructure.Config.csproj" />
+    <ProjectReference Include="..\ShopSection.Infrastructure.Config\ShopSection.Infrastructure.Config.csproj" />
+  </ItemGroup>
+
 </Project>

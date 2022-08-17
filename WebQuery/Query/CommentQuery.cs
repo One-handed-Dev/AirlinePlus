@@ -1,26 +1,26 @@
-﻿using System;
-using System.Linq;
+﻿using AccountSection.Infrastructure.EFCore;
+using CommentSection.Infrastructure.EFCore;
 using Common.Application;
 using Common.Presentation;
-using System.Collections.Generic;
-using WebQuery.Contracts.Comment;
 using Microsoft.EntityFrameworkCore;
 using ShopSection.Infrastructure.EFCore;
-using AccountSection.Infrastructure.EFCore;
-using CommentSection.Infrastructure.EFCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using WebQuery.Contracts.Comment;
 
 namespace WebQuery.Query
 {
     public sealed class CommentQuery : ICommentQuery
     {
         #region Init
-        private readonly ShopContext hotelContext;
+        private readonly ShopContext shopContext;
         private readonly AccountContext accountContext;
         private readonly CommentContext commentContext;
 
-        public CommentQuery(CommentContext commentContext, ShopContext hotelContext, AccountContext accountContext)
+        public CommentQuery(CommentContext commentContext, ShopContext shopContext, AccountContext accountContext)
         {
-            this.hotelContext = hotelContext;
+            this.shopContext = shopContext;
             this.commentContext = commentContext;
             this.accountContext = accountContext;
         }
@@ -46,7 +46,7 @@ namespace WebQuery.Query
             commentContext.SaveChanges();
         }
 
-        public List<QueryComment> GetShopComments(long hotelId)
+        public List<QueryComment> GetShopComments(long shopId)
         {
             Random random = new();
 
@@ -54,7 +54,7 @@ namespace WebQuery.Query
                 .FromList(commentContext.Comments
                 .AsNoTracking()
                 .Where(x => x.IsConfirmed)
-                .Where(x => x.RecordId == hotelId)
+                .Where(x => x.RecordId == shopId)
                 .Where(x => !x.IsRemoved)
                 .OrderByDescending(x => x.CreationDate))
                 .ToList();
@@ -74,10 +74,10 @@ namespace WebQuery.Query
                 #endregion
 
                 #region Fetch Order Status
-                var ownerOrders = hotelContext.Orders.Where(x => x.AccountId == each.OwnerId).ToList();
+                var ownerOrders = shopContext.Orders.Where(x => x.AccountId == each.OwnerId).ToList();
 
                 foreach (var order in ownerOrders)
-                    if (order.Items.Any(x => x.RoomId == each.ShopId))
+                    if (order.Items.Any(x => x.FlightId == each.ShopId))
                     {
                         each.IsOwnerBuyer = true;
                         break;
@@ -94,7 +94,7 @@ namespace WebQuery.Query
 
             query.ForEach(each =>
             {
-                var targetProduct = hotelContext.Shops.AsNoTracking().FirstOrDefault(x => x.Id == each.ShopId);
+                var targetProduct = shopContext.Shops.AsNoTracking().FirstOrDefault(x => x.Id == each.ShopId);
                 if (targetProduct is not null) each.TargetName = targetProduct.Name;
             });
 

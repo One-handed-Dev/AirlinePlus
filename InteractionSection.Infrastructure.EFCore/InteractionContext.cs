@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using InteractionSection.Domain.EmailAgg;
+﻿using InteractionSection.Domain.EmailAgg;
 using InteractionSection.Infrastructure.EFCore.Mappings;
+using Microsoft.EntityFrameworkCore;
 
 namespace InteractionSection.Infrastructure.EFCore
 {

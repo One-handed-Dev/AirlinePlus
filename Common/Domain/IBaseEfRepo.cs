@@ -1,11 +1,11 @@
-﻿using System;
-using System.Linq.Expressions;
+﻿using Common.Application.Contracts;
+using System;
 using System.Collections.Generic;
-using Common.Application.Contracts;
+using System.Linq.Expressions;
 
 namespace Common.Domain
 {
-    public interface IBaseEfRepo<TSave, TSearch, TView, TDomain> 
+    public interface IBaseEfRepo<TSave, TSearch, TView, TDomain>
 
         where TSave : BaseEfSaveModel
         where TView : BaseEfViewModel

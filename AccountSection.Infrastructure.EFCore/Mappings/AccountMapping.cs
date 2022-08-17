@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using AccountSection.Domain.AccountAgg;
+﻿using AccountSection.Domain.AccountAgg;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AccountSection.Infrastructure.EFCore.Mappings

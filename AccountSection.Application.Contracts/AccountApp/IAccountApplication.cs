@@ -1,6 +1,6 @@
 ﻿using Common.Application;
-using System.Threading.Tasks;
 using Common.Application.Contracts;
+using System.Threading.Tasks;
 
 namespace AccountSection.Application.Contracts.AccountApp
 {

@@ -4,7 +4,7 @@ using Common.Infrastructure;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using CommentSection.Domain.CommentAgg;
-using HotelSection.Infrastructure.EFCore;
+using ShopSection.Infrastructure.EFCore;
 using AccountSection.Infrastructure.EFCore;
 using CommentSection.Application.Contracts.CommentApp;
 
@@ -14,13 +14,13 @@ namespace CommentSection.Infrastructure.EFCore.Repositories
         BaseEfRepo<SaveComment, SearchComment, ViewComment, Comment>, ICommentRepo
     {
         #region Init
-        private readonly HotelContext hotelContext;
+        private readonly ShopContext shopContext;
         private readonly CommentContext commentContext;
         private readonly AccountContext accountContext;
 
-        public CommentRepo(CommentContext commentContext, AccountContext accountContext, HotelContext hotelContext) : base(commentContext)
+        public CommentRepo(CommentContext commentContext, AccountContext accountContext, ShopContext shopContext) : base(commentContext)
         {
-            this.hotelContext = hotelContext;
+            this.shopContext = shopContext;
             this.commentContext = commentContext;
             this.accountContext = accountContext;
         }
@@ -36,7 +36,7 @@ namespace CommentSection.Infrastructure.EFCore.Repositories
                 var accountName = accountContext.Accounts.FirstOrDefault(x => x.Id == each.OwnerId)?.Fullname;
                 each.OwnerName = (string.IsNullOrWhiteSpace(accountName) ? "بدون نام" : accountName);
 
-                each.RecordName = hotelContext.Hotels.AsNoTracking().FirstOrDefault(x => x.Id == each.RecordId)?.Name;
+                each.RecordName = shopContext.Airlines.AsNoTracking().FirstOrDefault(x => x.Id == each.RecordId)?.Name;
             }
 
             if (!string.IsNullOrWhiteSpace(command.OwnerName)) list = list.Where(x => x.OwnerName.Contains(command.OwnerName)).ToList();

@@ -1,6 +1,6 @@
-﻿using System;
-using Common.Domain;
+﻿using Common.Domain;
 using Newtonsoft.Json.Linq;
+using System;
 
 namespace Common.Infrastructure
 {

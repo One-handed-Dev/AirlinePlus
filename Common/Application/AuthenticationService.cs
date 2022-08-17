@@ -1,14 +1,14 @@
-﻿using System;
-using System.Linq;
+﻿using Common.Application.Contracts;
 using Common.Infrastructure;
-using System.Threading.Tasks;
-using System.Security.Claims;
-using Microsoft.AspNetCore.Http;
-using System.Collections.Generic;
-using Common.Application.Contracts;
-using Microsoft.Extensions.Configuration;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace Common.Application
 {

@@ -1,13 +1,13 @@
 ﻿using System;
 using MimeKit;
-using Common.Application;
-using ShopSection.Domain.OrderAgg;
 using AccountSection.Domain.AccountAgg;
-using CommentSection.Domain.CommentAgg;
-using InteractionSection.Domain.EmailAgg;
 using AccountSection.Domain.AccountPolicyAgg;
 using AccountSection.Domain.ForgetPasswordLogAgg;
+using CommentSection.Domain.CommentAgg;
+using Common.Application;
+using InteractionSection.Domain.EmailAgg;
 using InteractionSection.Application.Contracts.EmailApp;
+using ShopSection.Domain.OrderAgg;
 
 namespace InteractionSection.Application.EmailApp
 {

@@ -1,9 +1,9 @@
-﻿using System;
-using Common.Application;
-using CommentSection.Domain.CommentAgg;
-using AccountSection.Domain.AccountAgg;
+﻿using AccountSection.Domain.AccountAgg;
 using CommentSection.Application.Contracts.CommentApp;
+using CommentSection.Domain.CommentAgg;
+using Common.Application;
 using InteractionSection.Application.Contracts.EmailApp;
+using System;
 
 namespace CommentSection.Application.CommentApp
 {

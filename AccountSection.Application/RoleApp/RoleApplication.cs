@@ -1,11 +1,11 @@
-﻿using Common.Application;
-using System.Collections.Generic;
+﻿using AccountSection.Application.Contracts.RoleApp;
 using AccountSection.Domain.RoleAgg;
-using AccountSection.Application.Contracts.RoleApp;
+using Common.Application;
+using System.Collections.Generic;
 
 namespace AccountSection.Application.RoleApp
 {
-    public sealed class RoleApplication : 
+    public sealed class RoleApplication :
         BaseEfApplication<IRoleRepo, SaveRole, SearchRole, ViewRole, Role>, IRoleApplication
     {
         #region Init

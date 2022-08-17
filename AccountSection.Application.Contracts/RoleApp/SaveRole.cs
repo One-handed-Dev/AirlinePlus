@@ -1,6 +1,6 @@
-﻿using Common.Infrastructure;
+﻿using Common.Application.Contracts;
+using Common.Infrastructure;
 using System.Collections.Generic;
-using Common.Application.Contracts;
 using System.ComponentModel.DataAnnotations;
 using static Common.Application.Strings.Persian;
 

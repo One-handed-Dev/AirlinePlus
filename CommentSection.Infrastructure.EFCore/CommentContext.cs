@@ -1,6 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
-using CommentSection.Domain.CommentAgg;
+﻿using CommentSection.Domain.CommentAgg;
 using CommentSection.Infrastructure.EFCore.Mappings;
+using Microsoft.EntityFrameworkCore;
 
 namespace CommentSection.Infrastructure.EFCore
 {

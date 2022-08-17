@@ -1,15 +1,12 @@
 ﻿using Common.Domain;
-using Microsoft.EntityFrameworkCore;
-using InteractionSection.Domain.EmailAgg;
-using InteractionSection.Application.EmailApp;
-using InteractionSection.Infrastructure.EFCore;
-using Microsoft.Extensions.DependencyInjection;
-using InteractionSection.Domain.DashboardStatisticAgg;
 using InteractionSection.Application.Contracts.EmailApp;
-using InteractionSection.Application.DashboardStatisticApp;
+using InteractionSection.Application.EmailApp;
+using InteractionSection.Domain.EmailAgg;
 using InteractionSection.Infrastructure.Config.Permissions;
+using InteractionSection.Infrastructure.EFCore;
 using InteractionSection.Infrastructure.EFCore.Repositories;
-using InteractionSection.Application.Contracts.DashboardStatisticApp;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace InteractionSection.Infrastructure.Config
 {
@@ -22,7 +19,6 @@ namespace InteractionSection.Infrastructure.Config
             services.AddTransient<IPermissionExposer, InteractionPermissionExposer>();
 
             services.AddTransient<IEmailRepo, EmailRepo>(); services.AddTransient<IEmailApplication, EmailApplication>();
-            services.AddTransient<IDashboardStatisticRepo, DashboardStatisticRepo>(); services.AddTransient<IDashboardStatisticApplication, DashboardStatisticApplication>();
         }
     }
 }

@@ -1,9 +1,9 @@
-﻿using System;
-using LinqKit;
+﻿using Common.Application.Contracts;
 using Common.Domain;
-using System.Linq.Expressions;
+using LinqKit;
+using System;
 using System.Collections.Generic;
-using Common.Application.Contracts;
+using System.Linq.Expressions;
 
 namespace Common.Application
 {

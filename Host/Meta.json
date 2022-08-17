@@ -1,0 +1,7 @@
+{
+  "AccountPolicy": {
+    "VerifyCodeTimerDurationMinutes": 2,
+    "ForgetPasswordLogHashExpirationMinutes": 5,
+    "ResetPasswordCallbackUrl": "https://localhost:5002/RecoverPassword?hash="
+  }
+}

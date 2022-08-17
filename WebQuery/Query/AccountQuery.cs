@@ -1,8 +1,8 @@
-﻿using System.Linq;
-using WebQuery.Contracts.Account;
+﻿using AccountSection.Application.Contracts.AccountApp;
 using AccountSection.Domain.AccountAgg;
 using AccountSection.Infrastructure.EFCore;
-using AccountSection.Application.Contracts.AccountApp;
+using System.Linq;
+using WebQuery.Contracts.Account;
 
 namespace WebQuery.Query
 {

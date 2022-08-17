@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using AccountSection.Domain.ForgetPasswordLogAgg;
+﻿using AccountSection.Domain.ForgetPasswordLogAgg;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace AccountSection.Infrastructure.EFCore.Mappings

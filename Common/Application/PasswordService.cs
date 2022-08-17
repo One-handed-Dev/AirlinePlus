@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Common.Application.Contracts;
+using Microsoft.Extensions.Options;
+using System;
 using System.Linq;
 using System.Security.Cryptography;
-using Microsoft.Extensions.Options;
-using Common.Application.Contracts;
 
 namespace Common.Application
 {

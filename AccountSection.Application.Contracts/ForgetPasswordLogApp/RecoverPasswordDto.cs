@@ -8,7 +8,7 @@ namespace AccountSection.Application.Contracts.ForgetPasswordLogApp
         [Required(ErrorMessage = ValidationMessages.IsRequired)]
         public string Hash { get; set; }
 
-        [Required(ErrorMessage = ValidationMessages.IsRequired)] 
+        [Required(ErrorMessage = ValidationMessages.IsRequired)]
         public string NewPassword { get; set; }
     }
 }

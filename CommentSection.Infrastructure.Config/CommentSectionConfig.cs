@@ -1,14 +1,14 @@
-﻿using Common.Domain;
-using WebQuery.Query;
-using WebQuery.Contracts.Comment;
-using Microsoft.EntityFrameworkCore;
-using CommentSection.Domain.CommentAgg;
-using CommentSection.Infrastructure.EFCore;
-using CommentSection.Application.CommentApp;
-using Microsoft.Extensions.DependencyInjection;
+﻿using CommentSection.Application.CommentApp;
 using CommentSection.Application.Contracts.CommentApp;
+using CommentSection.Domain.CommentAgg;
 using CommentSection.Infrastructure.Config.Permissions;
+using CommentSection.Infrastructure.EFCore;
 using CommentSection.Infrastructure.EFCore.Repositories;
+using Common.Domain;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using WebQuery.Contracts.Comment;
+using WebQuery.Query;
 
 namespace CommentSection.Infrastructure.Config
 {

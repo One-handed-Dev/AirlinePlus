@@ -1,11 +1,11 @@
-﻿using System;
-using System.Linq;
-using Common.Domain;
-using Common.Application;
-using System.Linq.Expressions;
-using System.Collections.Generic;
+﻿using Common.Application;
 using Common.Application.Contracts;
+using Common.Domain;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace Common.Infrastructure
 {
@@ -33,7 +33,7 @@ namespace Common.Infrastructure
         public bool Save() => context.SaveChanges() > 0;
 
         public void Create(TDomain entity) => context.Add(entity);
-            
+
         public virtual TDomain Get(long id) => context.Find<TDomain>(id);
 
         public List<TDomain> GetAll() => context.Set<TDomain>().AsNoTracking().ToList();

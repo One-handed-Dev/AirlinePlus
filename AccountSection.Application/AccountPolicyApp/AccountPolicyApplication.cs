@@ -1,6 +1,6 @@
-﻿using Common.Application;
+﻿using AccountSection.Application.Contracts.AccountPolicyApp;
 using AccountSection.Domain.AccountPolicyAgg;
-using AccountSection.Application.Contracts.AccountPolicyApp;
+using Common.Application;
 
 namespace AccountSection.Application.AccountPolicyApp
 {

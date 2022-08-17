@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using CommentSection.Domain.CommentAgg;
+﻿using CommentSection.Domain.CommentAgg;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace CommentSection.Infrastructure.EFCore.Mappings

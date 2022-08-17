@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using Common.Application.Contracts;
+﻿using Common.Application.Contracts;
+using System.Collections.Generic;
 
 namespace AccountSection.Application.Contracts.RoleApp
 {

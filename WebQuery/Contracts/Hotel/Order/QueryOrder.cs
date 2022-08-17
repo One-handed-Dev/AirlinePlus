@@ -1,5 +1,5 @@
-﻿using ShopSection.Domain.OrderAgg;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using ShopSection.Domain.OrderAgg;
 
 namespace WebQuery.Contracts.Shop.Order
 {

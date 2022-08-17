@@ -1,5 +1,5 @@
-﻿using Common.Domain;
-using Common.Application;
+﻿using Common.Application;
+using Common.Domain;
 
 namespace AccountSection.Domain.ForgetPasswordLogAgg
 {

@@ -1,8 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
-using AccountSection.Domain.RoleAgg;
-using AccountSection.Domain.AccountAgg;
+﻿using AccountSection.Domain.AccountAgg;
 using AccountSection.Domain.ForgetPasswordLogAgg;
+using AccountSection.Domain.RoleAgg;
 using AccountSection.Infrastructure.EFCore.Mappings;
+using Microsoft.EntityFrameworkCore;
 
 namespace AccountSection.Infrastructure.EFCore
 {

@@ -1,6 +1,6 @@
 ﻿using MimeKit;
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace InteractionSection.Application.Contracts.EmailApp
 {

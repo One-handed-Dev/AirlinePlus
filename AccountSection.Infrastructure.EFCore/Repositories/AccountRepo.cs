@@ -1,10 +1,10 @@
-﻿using System.Linq;
+﻿using AccountSection.Application.Contracts.AccountApp;
+using AccountSection.Domain.AccountAgg;
 using Common.Application;
 using Common.Infrastructure;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using AccountSection.Domain.AccountAgg;
-using AccountSection.Application.Contracts.AccountApp;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace AccountSection.Infrastructure.EFCore.Repositories
 {

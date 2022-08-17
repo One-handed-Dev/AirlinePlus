@@ -1,10 +1,10 @@
-﻿using System.Linq;
-using Common.Application;
+﻿using Common.Application;
 using Common.Infrastructure;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
-using InteractionSection.Domain.EmailAgg;
 using InteractionSection.Application.Contracts.EmailApp;
+using InteractionSection.Domain.EmailAgg;
+using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace InteractionSection.Infrastructure.EFCore.Repositories
 {

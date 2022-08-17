@@ -1,5 +1,5 @@
-﻿using Common.Domain;
-using AccountSection.Application.Contracts.AccountPolicyApp;
+﻿using AccountSection.Application.Contracts.AccountPolicyApp;
+using Common.Domain;
 
 namespace AccountSection.Domain.AccountPolicyAgg
 {

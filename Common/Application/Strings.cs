@@ -6,7 +6,7 @@
         {
             public const string IdSeparator = ";";
             public const string TagSeparator = "^";
-            public const string OrderSymbol = "Ord-";
+            public const string OrderSymbol = "Fly-";
         }
 
         public static class Persian
@@ -62,9 +62,8 @@
                 public const string ForgetPasswordLog = "فراموشی رمز عبور (ForgetPasswordLog)";
                 public const string AccountPolicy = "سیاست‌های کاربران (AccountPolicy)";
 
-                public const string Shop = "هتل (Shop)";
-                public const string Room = "اتاق (Room)";
-                public const string ShopPicture = "عکس هتل (ShopPicture)";
+                public const string Airline = "خط هوایی (Airline)";
+                public const string Flight = "پرواز (Flight)";
 
                 public const string Email = "ایمیل (Email)";
                 public const string Comment = "نظرات (Comment)";
@@ -77,9 +76,8 @@
             public static class Host
             {
                 public const string CartCookieName = "cart-items";
-                public const string DefaultSession = "default-session";
             }
-            
+
             public static class Query
             {
                 public const string NoPictureProfileFilePath = "no-picture";

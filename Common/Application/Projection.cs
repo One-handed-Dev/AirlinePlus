@@ -1,9 +1,9 @@
-﻿using System;
-using System.Linq;
+﻿using Common.Application.Contracts;
 using Newtonsoft.Json;
-using System.Reflection;
+using System;
 using System.Collections.Generic;
-using Common.Application.Contracts;
+using System.Linq;
+using System.Reflection;
 using static Common.Application.Strings.English;
 
 namespace Common.Application
@@ -49,7 +49,7 @@ namespace Common.Application
                     var jsonProp = jsonProps.FirstOrDefault(x => x.Name == selfProp.Name);
 
                     if (jsonProp.Name.Contains("Date"))
-                    { 
+                    {
                         var gregorian = DateTime.Parse((string)jsonProp.GetValue(jsonObject));
                         var dateString = gregorian.ToString();
                         selfProp.SetValue(self, dateString);

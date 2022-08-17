@@ -1,6 +1,6 @@
-﻿using Common.Domain;
+﻿using AccountSection.Domain.RoleAgg;
 using Common.Application;
-using AccountSection.Domain.RoleAgg;
+using Common.Domain;
 using static Common.Application.Projection;
 
 namespace AccountSection.Domain.AccountAgg

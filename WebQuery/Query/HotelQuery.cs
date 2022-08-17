@@ -1,88 +1,69 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using Common.Application;
 using System.Collections.Generic;
 using WebQuery.Contracts.Comment;
-using Microsoft.EntityFrameworkCore;
 using WebQuery.Contracts.Shop.Shop;
-using ShopSection.Domain.PictureAgg;
+using Microsoft.EntityFrameworkCore;
 using ShopSection.Infrastructure.EFCore;
-using WebQuery.Contracts.Shop.ShopPicture;
 using ShopSection.Application.Contracts.OrderApp;
 
 namespace WebQuery.Query
 {
-    public class ShopQuery : IShopQuery
+    public class AirlineQuery : IAirlineQuery
     {
         #region Init
         private readonly ShopContext context;
         private readonly ICommentQuery commentQuery;
 
-        public ShopQuery(ShopContext context, ICommentQuery commentQuery)
+        public AirlineQuery(ShopContext context, ICommentQuery commentQuery)
         {
             this.context = context;
             this.commentQuery = commentQuery;
         }
         #endregion
 
-        public QueryShop GetDetails(long id) 
+        public QueryShop GetDetails(long id)
         {
-            var hotel = context.Shops
+            var shop = context.Airlines
                 .AsNoTracking()
-                .Include(x => x.Rooms)
-                .Include(x => x.ShopPictures)
+                .Include(x => x.Flights)
                 .FirstOrDefault(x => x.Id == id);
 
-            if (hotel is null) return default;
+            if (shop is null) return default;
 
-            var query = new QueryShop().From(hotel);
+            var query = new QueryShop().From(shop);
 
-            query.ShopPictures = MapPictures(hotel.ShopPictures);
             query.Comments = commentQuery.GetShopComments(query.Id);
-            query.CountOfRooms = query.Rooms.Sum(x => x.CountOfThisRoomTypeInShop);
+            query.CountOfFlights = query.Flights.Sum(x => x.CountOfThisFlightTypeInShop);
 
             return query;
         }
 
         public QueryShop[] Search(string query) => new QueryShop()
-            .FromList(context.Shops.AsNoTracking()
-            .Where(x => x.Name.Contains(query) || x.City.Contains(query) || x.Address.Contains(query)))
+            .FromList(context.Flights.Include(x => x.Airline).AsNoTracking()
+            .Where(x => x.Airline.Name.Contains(query) || x.SourceCity.Contains(query) || x.DestinationCity.Contains(query)))
             .ToArray();
 
         public List<CartItem> FetchData(List<CartItem> cartItems)
         {
             cartItems.ForEach(each =>
             {
-                var room = context.Rooms.SingleOrDefault(x => x.Id == each.Id);
+                var flight = context.Flights.SingleOrDefault(x => x.Id == each.Id);
 
-                if (room is not null)
+                if (flight is not null)
                 {
-                    var hotel = context.Shops.SingleOrDefault(x => x.Id == room.ShopId);
+                    var airline = context.Airlines.SingleOrDefault(x => x.Id == flight.AirlineId);
 
-                    each.ShopId = hotel.Id;
-                    each.Price = room.Price;
-                    each.Picture = hotel.Picture;
-                    each.Name = hotel.Name + " - " + room.Name;
+                    each.ShopId = airline.Id;
+                    each.Price = flight.Price;
+                    each.Picture = airline.Picture;
+                    each.Name = airline.Name + " - " + flight.SourceCity;
                 }
             });
 
             return cartItems;
         }
 
-        public QueryShop[] GetSameCityShops(string city, long id) => new QueryShop().FromList(context.Shops.AsNoTracking()
-            .Where(x => x.Id != id)
-            .Where(x => x.City == city)
-            ).ToArray();
-
-        private static List<QueryShopPicture> MapPictures(List<ShopPicture> pictures) 
-            => pictures.Select(x => new QueryShopPicture()
-            {
-                Id = x.Id,
-                ShopId = x.ShopId,
-                Picture = x.Picture,
-                IsRemoved = x.IsRemoved,
-            }).Where(x => !x.IsRemoved).OrderByDescending(x => x.Id).ToList();
-
-        public QueryShop[] GetAll() => new QueryShop().FromList(context.Shops.AsNoTracking()).ToArray();
+        public QueryShop[] GetAll() => new QueryShop().FromList(context.Airlines.AsNoTracking()).ToArray();
     }
 }

@@ -1,5 +1,5 @@
-﻿using Common.Domain;
-using Common.Application.Contracts;
+﻿using Common.Application.Contracts;
+using Common.Domain;
 
 namespace CommentSection.Application.Contracts.CommentApp
 {
