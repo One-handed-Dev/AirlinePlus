@@ -1,11 +1,10 @@
 ﻿using Common.Presentation;
-using ShopSection.Domain.FlightAgg;
 using System.Collections.Generic;
-using WebQuery.Contracts.Shop.ShopPicture;
+using ShopSection.Domain.FlightAgg;
 
-namespace WebQuery.Contracts.Shop.Shop
+namespace WebQuery.Contracts.Shop.Airline
 {
-    public class QueryShop
+    public class QueryAirline
     {
         public long Id { get; set; }
         public string City { get; set; }

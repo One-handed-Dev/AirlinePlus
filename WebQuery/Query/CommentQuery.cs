@@ -94,7 +94,7 @@ namespace WebQuery.Query
 
             query.ForEach(each =>
             {
-                var targetProduct = shopContext.Shops.AsNoTracking().FirstOrDefault(x => x.Id == each.ShopId);
+                var targetProduct = shopContext.Airlines.AsNoTracking().FirstOrDefault(x => x.Id == each.ShopId);
                 if (targetProduct is not null) each.TargetName = targetProduct.Name;
             });
 

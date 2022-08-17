@@ -8,8 +8,7 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
-using HotelSection.Presentation.Api;
-using HotelSection.Infrastructure.Config;
+using ShopSection.Infrastructure.Config;
 using Microsoft.Extensions.Configuration;
 using InteractionSection.Domain.EmailAgg;
 using AccountSection.Infrastructure.Config;
@@ -31,10 +30,10 @@ namespace Host
 
         public void ConfigureServices(IServiceCollection services)
         {
-            var conncetionString = Configuration.GetConnectionString("LilHotelDb");
+            var conncetionString = Configuration.GetConnectionString("AirlinePlusDb");
 
             HostConfig.Configure(services);
-            HotelSectionConfig.Configure(services, conncetionString);
+            ShopSectionConfig.Configure(services, conncetionString);
             CommentSectionConfig.Configure(services, conncetionString);
             AccountSectionConfig.Configure(services, conncetionString);
             InteractionSectionConfig.Configure(services, conncetionString);
@@ -72,7 +71,7 @@ namespace Host
                 {
                     o.Conventions.AuthorizeAreaFolder("Dashboard", "/", "AdminAreaFullAccess");
                 })
-                .AddApplicationPart(typeof(ReserveHotelController).Assembly);
+                ;//.AddApplicationPart(typeof(ReserveHotelController).Assembly);
 
             services.AddSession();
             services.AddHttpContextAccessor();

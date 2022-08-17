@@ -1,12 +1,12 @@
 ﻿using Common.Domain;
-using InteractionSection.Application.Contracts.EmailApp;
-using InteractionSection.Application.EmailApp;
-using InteractionSection.Domain.EmailAgg;
-using InteractionSection.Infrastructure.Config.Permissions;
-using InteractionSection.Infrastructure.EFCore;
-using InteractionSection.Infrastructure.EFCore.Repositories;
 using Microsoft.EntityFrameworkCore;
+using InteractionSection.Domain.EmailAgg;
+using InteractionSection.Application.EmailApp;
 using Microsoft.Extensions.DependencyInjection;
+using InteractionSection.Infrastructure.EFCore;
+using InteractionSection.Application.Contracts.EmailApp;
+using InteractionSection.Infrastructure.Config.Permissions;
+using InteractionSection.Infrastructure.EFCore.Repositories;
 
 namespace InteractionSection.Infrastructure.Config
 {

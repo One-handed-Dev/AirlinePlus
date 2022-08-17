@@ -2,10 +2,10 @@
 using Common.Application;
 using System.Collections.Generic;
 using WebQuery.Contracts.Comment;
-using WebQuery.Contracts.Shop.Shop;
 using Microsoft.EntityFrameworkCore;
 using ShopSection.Infrastructure.EFCore;
 using ShopSection.Application.Contracts.OrderApp;
+using WebQuery.Contracts.Shop.Airline;
 
 namespace WebQuery.Query
 {
@@ -22,7 +22,7 @@ namespace WebQuery.Query
         }
         #endregion
 
-        public QueryShop GetDetails(long id)
+        public QueryAirline GetDetails(long id)
         {
             var shop = context.Airlines
                 .AsNoTracking()
@@ -31,15 +31,15 @@ namespace WebQuery.Query
 
             if (shop is null) return default;
 
-            var query = new QueryShop().From(shop);
+            var query = new QueryAirline().From(shop);
 
             query.Comments = commentQuery.GetShopComments(query.Id);
-            query.CountOfFlights = query.Flights.Sum(x => x.CountOfThisFlightTypeInShop);
+            //query.CountOfFlights = query.Flights.Sum(x => x.CountOfThisFlightTypeInShop);
 
             return query;
         }
 
-        public QueryShop[] Search(string query) => new QueryShop()
+        public QueryAirline[] Search(string query) => new QueryAirline()
             .FromList(context.Flights.Include(x => x.Airline).AsNoTracking()
             .Where(x => x.Airline.Name.Contains(query) || x.SourceCity.Contains(query) || x.DestinationCity.Contains(query)))
             .ToArray();
@@ -64,6 +64,6 @@ namespace WebQuery.Query
             return cartItems;
         }
 
-        public QueryShop[] GetAll() => new QueryShop().FromList(context.Airlines.AsNoTracking()).ToArray();
+        public QueryAirline[] GetAll() => new QueryAirline().FromList(context.Airlines.AsNoTracking()).ToArray();
     }
 }

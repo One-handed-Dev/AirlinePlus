@@ -22,26 +22,14 @@ namespace ShopSection.Infrastructure.Config.Permissions
             }, 
 
             {
-                ShopPermissions.ForShop, new List<PermissionDto>
+                ShopPermissions.ForAirline, new List<PermissionDto>
                 {
-                    new((int)ShopPermissions.Shop.List,    PermissionDisplayNames.List),
-                    new((int)ShopPermissions.Shop.Edit,    PermissionDisplayNames.Edit),
-                    new((int)ShopPermissions.Shop.Create,  PermissionDisplayNames.Create),
-                    new((int)ShopPermissions.Shop.Search,  PermissionDisplayNames.Search),
-                    new((int)ShopPermissions.Shop.Remove,  PermissionDisplayNames.Remove),
-                    new((int)ShopPermissions.Shop.Restore, PermissionDisplayNames.Restore)
-                }
-            }, 
-
-            {
-                ShopPermissions.ForShopPicture, new List<PermissionDto>
-                {
-                    new((int)ShopPermissions.ShopPicture.List,    PermissionDisplayNames.List),
-                    new((int)ShopPermissions.ShopPicture.Edit,    PermissionDisplayNames.Edit),
-                    new((int)ShopPermissions.ShopPicture.Create,  PermissionDisplayNames.Create),
-                    new((int)ShopPermissions.ShopPicture.Search,  PermissionDisplayNames.Search),
-                    new((int)ShopPermissions.ShopPicture.Remove,  PermissionDisplayNames.Remove),
-                    new((int)ShopPermissions.ShopPicture.Restore, PermissionDisplayNames.Restore)
+                    new((int)ShopPermissions.Airline.List,    PermissionDisplayNames.List),
+                    new((int)ShopPermissions.Airline.Edit,    PermissionDisplayNames.Edit),
+                    new((int)ShopPermissions.Airline.Create,  PermissionDisplayNames.Create),
+                    new((int)ShopPermissions.Airline.Search,  PermissionDisplayNames.Search),
+                    new((int)ShopPermissions.Airline.Remove,  PermissionDisplayNames.Remove),
+                    new((int)ShopPermissions.Airline.Restore, PermissionDisplayNames.Restore)
                 }
             }, 
 

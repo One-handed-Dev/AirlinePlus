@@ -8,7 +8,7 @@ namespace Common.Domain
     {
         TDomain Get();
         void Set(TDomain command);
-        static void SetJson(string newJson) => File.WriteAllText("Meta.json", newJson);
-        static JObject GetJson() => JsonConvert.DeserializeObject(File.ReadAllText("Meta.json")) as JObject;
+        static void SetJson(string newJson) => File.WriteAllText("info.json", newJson);
+        static JObject GetJson() => JsonConvert.DeserializeObject(File.ReadAllText("info.json")) as JObject;
     }
 }
